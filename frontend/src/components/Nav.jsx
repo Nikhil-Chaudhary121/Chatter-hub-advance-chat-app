@@ -1,5 +1,9 @@
 import { IoChatbubblesOutline } from "react-icons/io5";
+import { useAuthContext } from "../context/AuthContext";
 const Nav = () => {
+  const { authUser } = useAuthContext();
+  console.log("user data ", authUser);
+
   return (
     <>
       <div className="z-10 bg-[#F7F8FA] shadow w-full flex justify-between  px-12 py-3">
@@ -8,7 +12,7 @@ const Nav = () => {
           <h1 className="text-xl text-[#2f3435] font-bold">ChatterHub</h1>
         </div>
         <img
-          src="https://avatar.iran.liara.run/public/boy"
+          src={authUser.profilePic}
           alt=""
           className="w-10 shadow h-10 rounded-full"
         />

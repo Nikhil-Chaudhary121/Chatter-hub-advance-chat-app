@@ -1,6 +1,31 @@
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import useSignup from "../../hooks/useSignup";
+import LoadingBtn from "../../components/Sidebar/LoadingBtn";
+
 const SignUp = () => {
+  const [inputs, setInputs] = useState({
+    fullName: "",
+    username: "",
+    password: "",
+    confirmPassword: "",
+    gender: "",
+  });
+
+  const { signup, loading } = useSignup();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    console.log(inputs);
+
+    await signup(inputs);
+  };
+
   return (
-    <div className=" p-8  bg-white rounded-lg flex flex-col gap-2 items-center ">
+    <form
+      onSubmit={handleSubmit}
+      className=" p-8  bg-white rounded-lg flex flex-col gap-2 items-center "
+    >
       <h1 className=" font-bold px-8 text-xl ">
         Sign Up <span className="text-[#227fa7]">ChatterHub</span>
       </h1>
@@ -11,6 +36,8 @@ const SignUp = () => {
         <label htmlFor="username" className="flex flex-col text-sm font-medium">
           <span className="px-1 text-[#3d3c3c]">Full Name</span>
           <input
+            value={inputs.fullName}
+            onChange={(e) => setInputs({ ...inputs, fullName: e.target.value })}
             type="text"
             name=""
             id=""
@@ -21,6 +48,8 @@ const SignUp = () => {
         <label htmlFor="username" className="flex flex-col text-sm font-medium">
           <span className="px-1 text-[#3d3c3c]">Username</span>
           <input
+            value={inputs.username}
+            onChange={(e) => setInputs({ ...inputs, username: e.target.value })}
             type="text"
             name=""
             id=""
@@ -32,6 +61,8 @@ const SignUp = () => {
         <label htmlFor="username" className="flex flex-col text-sm font-medium">
           <span className="px-1 text-[#3d3c3c]">Password</span>
           <input
+            value={inputs.password}
+            onChange={(e) => setInputs({ ...inputs, password: e.target.value })}
             type="text"
             name=""
             id=""
@@ -42,6 +73,10 @@ const SignUp = () => {
         <label htmlFor="username" className="flex flex-col text-sm font-medium">
           <span className="px-1 text-[#3d3c3c]">Confirm Password</span>
           <input
+            value={inputs.confirmPassword}
+            onChange={(e) =>
+              setInputs({ ...inputs, confirmPassword: e.target.value })
+            }
             type="text"
             name=""
             id=""
@@ -56,6 +91,10 @@ const SignUp = () => {
           <div className="flex items-center space-x-4">
             <label className="flex items-center space-x-2">
               <input
+                checked={inputs.gender === "male"}
+                onClick={() => {
+                  setInputs({ ...inputs, gender: "male" });
+                }}
                 type="radio"
                 name="gender"
                 value="male"
@@ -65,6 +104,10 @@ const SignUp = () => {
             </label>
             <label className="flex items-center space-x-2">
               <input
+                checked={inputs.gender === "female"}
+                onClick={() => {
+                  setInputs({ ...inputs, gender: "female" });
+                }}
                 type="radio"
                 name="gender"
                 value="female"
@@ -80,17 +123,21 @@ const SignUp = () => {
         </p> */}
       </div>
       <div className=" flex flex-col w-full items-center gap-2">
-        <button className=" w-[96%] py-3 px-6 rounded-lg text-white font-medium bg-[#35c0ef]">
-          Sign Up
+        <button
+          disabled={loading}
+          type="submit"
+          className=" w-[96%] py-3 px-6 rounded-lg text-white font-medium bg-[#35c0ef]"
+        >
+          {loading ? <LoadingBtn /> : "Sign Up"}
         </button>
         <p className="text-start text-sm ">
           Don't have an account?
           <span className="font-bold">
-            <a href="/user/register">Register Now</a>
+            <Link to="/login">Login Now</Link>
           </span>
         </p>
       </div>
-    </div>
+    </form>
   );
 };
 

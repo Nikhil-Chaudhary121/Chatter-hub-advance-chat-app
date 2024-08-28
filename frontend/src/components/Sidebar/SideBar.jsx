@@ -1,10 +1,12 @@
 import Conversations from "./Conversations";
+import LogoutBtn from "./LogoutBtn";
+
 import SearchBox from "./SearchBox";
 import { MdOutlineLogout } from "react-icons/md";
 
 const SideBar = () => {
   return (
-    <div className=" flex flex-col  px-6 py-6 gap-4 bg-[#FCFCFC]">
+    <div className="  flex flex-col  px-6 py-6 h-full gap-4 bg-[#FCFCFC]">
       <div className=" flex flex-col gap-2">
         <h1 className=" z-10 text-xl font-bold font-gilroy text-center ">
           Messages
@@ -14,10 +16,11 @@ const SideBar = () => {
           All Chats
         </div>
       </div>
-      <Conversations />
-      <div className=" flex items-center gap-4 w-full border-t-[1.5px] py-2 justify-center">
-        <span className=" font-[Poppins] font-medium ">Logout</span>
-        <MdOutlineLogout />
+      <div className=" relative overflow-y-auto hide-scrollbar overflow-hidden flex-1 pb-10">
+        <Conversations />
+      </div>
+      <div className=" justify-self-end w-full  z-20">
+        <LogoutBtn />
       </div>
     </div>
   );

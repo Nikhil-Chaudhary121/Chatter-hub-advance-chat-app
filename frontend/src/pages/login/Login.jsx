@@ -1,6 +1,21 @@
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import useLogin from "../../hooks/useLogin";
+import LoadingBtn from "../../components/Sidebar/LoadingBtn";
+
 const Login = () => {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const { loading, login } = useLogin();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    await login(username, password);
+  };
   return (
-    <div className=" p-8  bg-white rounded-lg flex flex-col gap-2 items-center ">
+    <form
+      onSubmit={handleSubmit}
+      className=" p-8  bg-white rounded-lg flex flex-col gap-2 items-center "
+    >
       <h1 className=" font-bold px-8 text-xl ">
         Login <span className="text-[#227fa7]">ChatterHub</span>
       </h1>
@@ -15,6 +30,8 @@ const Login = () => {
           >
             <span className="px-1 text-[#3d3c3c]">Username</span>
             <input
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
               type="text"
               name=""
               id=""
@@ -30,6 +47,8 @@ const Login = () => {
           >
             <span className="px-1 text-[#3d3c3c]">Password</span>
             <input
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
               type="text"
               name=""
               id=""
@@ -44,17 +63,21 @@ const Login = () => {
         </p>
       </div>
       <div className=" flex flex-col w-full items-center gap-2">
-        <button className=" w-[96%] py-3 px-6 rounded-lg text-white font-medium bg-[#35c0ef]">
-          Login
+        <button
+          disabled={loading}
+          type="submit"
+          className=" w-[96%] py-3 px-6 rounded-lg text-white font-medium bg-[#35c0ef]"
+        >
+          {loading ? <LoadingBtn /> : "Login"}
         </button>
         <p className="text-start text-sm ">
           Don't have an account?
           <span className="font-bold">
-            <a href="/user/register">Register Now</a>
+            <Link to="/signup">Register Now</Link>
           </span>
         </p>
       </div>
-    </div>
+    </form>
   );
 };
 
