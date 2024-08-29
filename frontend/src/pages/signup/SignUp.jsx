@@ -41,7 +41,7 @@ const SignUp = () => {
             type="text"
             name=""
             id=""
-            placeholder="Ex - Vishal Chaudhary"
+            placeholder="Enter Full Name"
             className="pl-4 pr-16 py-[6px] rounded-md bg-[#ededed] placeholder:text-[#787878] border-2 border-zinc-400 focus:border-black"
           />
         </label>
@@ -53,7 +53,7 @@ const SignUp = () => {
             type="text"
             name=""
             id=""
-            placeholder="Ex - vishal0121"
+            placeholder="Enter Username"
             className="pl-4 pr-16 py-[6px]  rounded-md bg-[#ededed] placeholder:text-[#787878] border-2 border-zinc-400 focus:border-black"
           />
         </label>
@@ -63,10 +63,10 @@ const SignUp = () => {
           <input
             value={inputs.password}
             onChange={(e) => setInputs({ ...inputs, password: e.target.value })}
-            type="text"
+            type="password"
             name=""
             id=""
-            placeholder="*********"
+            placeholder="Create Password"
             className="pl-4 pr-16 py-[6px]  rounded-md bg-[#ededed] placeholder:text-[#787878] border-2 border-zinc-400 focus:border-black"
           />
         </label>
@@ -77,10 +77,10 @@ const SignUp = () => {
             onChange={(e) =>
               setInputs({ ...inputs, confirmPassword: e.target.value })
             }
-            type="text"
+            type="password"
             name=""
             id=""
-            placeholder="*********"
+            placeholder="Confirm Password"
             className="pl-4 pr-16 py-[6px] rounded-md bg-[#ededed] placeholder:text-[#787878] border-2 border-zinc-400 focus:border-black"
           />
         </label>
@@ -126,7 +126,7 @@ const SignUp = () => {
         <button
           disabled={loading}
           type="submit"
-          className=" w-[96%] py-3 px-6 rounded-lg text-white font-medium bg-[#35c0ef]"
+          className=" w-[96%] py-2 px-6 rounded-lg text-white font-[Poppins] font-medium bg-[#35c0ef]"
         >
           {loading ? <LoadingBtn /> : "Sign Up"}
         </button>

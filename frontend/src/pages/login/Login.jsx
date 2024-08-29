@@ -22,7 +22,7 @@ const Login = () => {
       <p className=" md:text-lg text-md leading-5 text-center">
         Hey,Enter your details to get login <br /> to your account
       </p>
-      <div className=" py-4 flex flex-col gap-2">
+      <div className=" py-4 flex flex-col w-full gap-2">
         <div>
           <label
             htmlFor="username"
@@ -35,25 +35,25 @@ const Login = () => {
               type="text"
               name=""
               id=""
-              placeholder="Ex - vishal0121"
-              className="pl-5 pr-16 py-2 rounded-md bg-[#ededed] placeholder:text-[#787878] border-2 border-zinc-400 focus:border-black"
+              placeholder="Enter Username"
+              className="px-3 py-2 rounded-md bg-[#ededed] placeholder:text-[#787878] border-2 border-zinc-400 focus:border-black"
             />
           </label>
         </div>
-        <div>
+        <div className=" w-full">
           <label
-            htmlFor="username"
-            className="flex flex-col text-sm font-medium"
+            htmlFor="password"
+            className="flex flex-col w-full text-sm font-medium"
           >
             <span className="px-1 text-[#3d3c3c]">Password</span>
             <input
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              type="text"
+              type="password"
               name=""
               id=""
-              placeholder="*********"
-              className="px-6 py-2 rounded-md bg-[#ededed] placeholder:text-[#787878] border-2 border-zinc-400 focus:border-black"
+              placeholder="Enter Password"
+              className="px-3 w-full py-2 rounded-md bg-[#ededed] placeholder:text-[#787878] border-2 border-zinc-400 focus:border-black"
             />
           </label>
         </div>
@@ -66,7 +66,7 @@ const Login = () => {
         <button
           disabled={loading}
           type="submit"
-          className=" w-[96%] py-3 px-6 rounded-lg text-white font-medium bg-[#35c0ef]"
+          className=" w-[96%] py-2 px-6 rounded-lg text-white font-[Poppins] font-medium bg-[#35c0ef]"
         >
           {loading ? <LoadingBtn /> : "Login"}
         </button>

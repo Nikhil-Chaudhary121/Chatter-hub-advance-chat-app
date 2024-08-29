@@ -35,8 +35,8 @@ export default {
         },
       },
       backgroundImage: {
-        "bg-img-1": "url('/login.png')",
-        "bg-img-2": "url('/card2.avif')",
+        "bg-img-1": "url('/bg-1.jpg')",
+        "bg-img-2": "url('/bg-2.png')",
         "feature-bg": "url('/feature-bg.png')",
         pattern: "url('/pattern.png')",
         "pattern-2": "url('/pattern-bg.png')",

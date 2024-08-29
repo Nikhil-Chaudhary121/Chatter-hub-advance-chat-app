@@ -11,11 +11,14 @@ const Message = ({ message }) => {
 
   const isOwn = message.senderId === authUser._id;
   return isOwn ? (
-    <div className=" w-full flex justify-end px-4 py-2 gap-4">
-      <div className=" text-md bg-[#1971BB] lg:max-w-[60%] max-w-[80%]  text-white border shadow-sm px-4 py-2 rounded-xl">
-        {" "}
-        <p className=" font-[Poppins] text-xs">{message.message}</p>
-        <span className="text-gray-300 text-xs">{formattedTime}</span>
+    <div className=" w-full flex justify-end px-4 py-2">
+      <div className=" text-md bg-[#87986a] lg:max-w-[60%] max-w-[80%]  text-white border shadow-sm px-4 py-2 rounded-xl">
+        <p className=" font-[Poppins] text-xs whitespace-break-spaces">
+          {message.message}
+        </p>
+        <span className="text-gray-300 md:text-xs text-[10px]">
+          {formattedTime}
+        </span>
       </div>
     </div>
   ) : (
@@ -24,9 +27,10 @@ const Message = ({ message }) => {
       <div
         className={` ${shakeClass} lg:max-w-[60%] max-w-[80%]  text-md bg-white border shadow-sm px-4 py-2 rounded-xl`}
       >
-        {" "}
         <p className=" font-[Poppins] text-xs">{message.message}</p>
-        <span className="text-gray-400 text-xs">{formattedTime}</span>
+        <span className="text-gray-400 md:text-xs text-[10px]">
+          {formattedTime}
+        </span>
       </div>
     </div>
   );

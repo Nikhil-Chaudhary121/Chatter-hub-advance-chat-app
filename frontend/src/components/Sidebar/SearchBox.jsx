@@ -38,11 +38,11 @@ const SearchBox = () => {
           name=""
           id=""
           placeholder="Search"
-          className=" px-8  border-2 border-r-0 rounded-l-xl py-[9px]"
+          className=" px-8 w-full border-2 border-r-0 rounded-l-xl md:py-[9px] py-[7px]"
         />
         <button
           type="submit"
-          className=" rounded-r-xl p-3 bg-[#E9EAEF] border border-l-0 font-medium text-gray-700 hover:text-gray-900"
+          className=" rounded-r-xl md:p-3 p-[10px] bg-[#E9EAEF] border border-l-0 font-medium text-gray-700 hover:text-gray-900"
         >
           <RiUserSearchLine className="text-xl" />
         </button>

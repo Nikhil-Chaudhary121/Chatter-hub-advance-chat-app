@@ -17,7 +17,7 @@ const MessageInput = () => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="  bottom-0  gap-4 w-full px-6 py-4  flex items-center z-20 rounded-b-xl bg-[#FDFDFF] "
+      className="  bottom-0  gap-4 w-full md:px-6 px-3 md:py-4 py-3  flex items-center z-20 rounded-b-xl bg-[#FDFDFF] "
     >
       {/* <IoMdAttach className=" text-2xl" /> */}
       <div className="flex-1">
@@ -28,12 +28,12 @@ const MessageInput = () => {
           name=""
           id=""
           placeholder="Write your message"
-          className="pl-5 pr-16 py-3 rounded-xl w-full focus:outline-none bg-[#fff]  placeholder:text-[#787878] border shadow  border-zinc-300 focus:border-zinc-500"
+          className="pl-5 pr-6 md:py-3 py-2 rounded-xl w-full focus:outline-none bg-[#fff]  placeholder:text-[#787878] border shadow  border-zinc-300 focus:border-zinc-500"
         />
       </div>
       <button
         type="submit"
-        className="ml-2 bg-[#60A5FA]  flex items-center gap-2 shadow-md  text-gray-700 hover:bg-blue-300 py-3 px-4 rounded-md"
+        className="ml-2 bg-[#718355]  flex items-center gap-2 shadow-md  text-gray-700 hover:bg-[#4f5c3c] md:py-3 py-2 px-4 rounded-md"
       >
         {loading ? (
           <LoadingBtn />

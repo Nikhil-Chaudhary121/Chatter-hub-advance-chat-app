@@ -14,7 +14,7 @@ const MessageContainer = () => {
   }, [setSelectedConversation]);
 
   return selectedConversation ? (
-    <div className=" relative w-full max-h-full min-h-full flex flex-col  bg-white rounded-xl">
+    <div className=" relative w-full max-h-full min-h-full flex flex-col  bg-[#faf9f9] rounded-xl">
       <div className=" z-20 shadow  w-full">
         <MessageHeader selectedConversation={selectedConversation} />
       </div>

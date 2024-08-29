@@ -34,7 +34,7 @@ const Messages = () => {
 
       {!loading && messages?.length === 0 && (
         <div className="min-h-full absolute w-full flex justify-center  items-center">
-          <h1 className="text-center font-semibold font-[Poppins]">
+          <h1 className="text-center xl:text-3xl lg:text-2xl md:text-xl text-2xl font-semibold font-[Poppins]">
             Send a message to start a conversation 👋🏻
           </h1>
         </div>
