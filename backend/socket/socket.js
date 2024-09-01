@@ -8,7 +8,8 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
   cors: {
-    origin: "https://chatter-hub-kd5d.onrender.com/",
+    // origin: "https://chatter-hub-kd5d.onrender.com/",
+    origin: "http://localhost:3000",
     methods: ["GET", "POST"],
     credentials: true,
   },

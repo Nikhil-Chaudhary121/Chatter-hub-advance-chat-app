@@ -13,14 +13,20 @@ const useListenMessages = () => {
       const isSelected =
         newMessage?.senderId.toString() === selectedConversation._id.toString();
 
+      const sidebar = document.querySelector(".sidebar");
+      const isSidebarActive = sidebar.classList.contains("translate-x-[-100%]");
+
       if (isSelected) {
         newMessage.shouldShake = true;
         const sound = new Audio(notificationSound);
         sound.play();
         setMessages([...messages, newMessage]);
-      } else {
-        console.log(newMessage);
 
+        if (!isSidebarActive) {
+          toast.success(`${newMessage?.users.sender} send you a message `);
+        }
+      } else {
+        // console.log(newMessage);
         toast.success(`${newMessage?.users.sender} send you a message `);
       }
     });
